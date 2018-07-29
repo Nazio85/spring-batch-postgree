@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="index :: head">
+
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center text-uppercase mt-5 mb-3">
+            <h4>ТОП – 5 самых используемых форм</h4>
+        </div>
+        <div class="col-12">
+            <div style="height: 400px; overflow: auto;">
+                <table  class="table">
+                    <thead>
+                    <tr>
+                        <th>Форма</th>
+                        <th>Кол-во работы с формой</th>
+                    </tr>
+                    </thead>
+                    <tr th:each="item : ${itemList}">
+                        <td th:text="${item.getKey()}"></td>
+                        <td th:text="${item.getValue()}"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="index :: footerJs"></div>
+</body>
+</html>

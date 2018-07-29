@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="index :: head">
+
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center text-uppercase mt-5 mb-3">
+            <h4 th:inline="text">Пользователи, которые начали активность на форме и не дошли до конца ([[${itemList.size()}]])</h4>
+        </div>
+        <div class="col-12">
+            <div style="height: 400px; overflow: auto;">
+                <table  class="table">
+                    <thead>
+                    <tr>
+                        <th>Пользователь ssoid</th>
+                        <th>Услуга</th>
+                        <th>subtype</th>
+                    </tr>
+                    </thead>
+                    <tr th:each="item : ${itemList}">
+                        <td th:text="${item.ssoid}"></td>
+                        <td th:text="${item.grp}"></td>
+                        <td th:text="${item.subtype}"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="index :: footerJs"></div>
+</body>
+</html>
